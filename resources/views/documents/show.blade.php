@@ -13,8 +13,8 @@
     <p><strong>Size:</strong> {{ $document->file_size }}</p>
 
     <p>
-        <a href="{{ $url }}" target="_blank">เปิดไฟล์</a>
-        |
+        {{-- <a href="{{ $url }}" target="_blank">เปิดไฟล์</a>
+        |--}}
         <a href="{{ route('documents.download', $document) }}">Download</a>
     </p>
 
