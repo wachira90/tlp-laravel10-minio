@@ -18,5 +18,11 @@ Route::get('/', function () {
     return redirect()->route('documents.index');
 });
 
+Route::get('/test', function () {
+    return  view('test');
+    // return view('welcome');
+    // return redirect()->route('documents.index');
+});
+
 Route::resource('documents', DocumentController::class);
 Route::get('documents/{document}/download', [DocumentController::class, 'download'])->name('documents.download');
