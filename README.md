@@ -595,3 +595,33 @@ Storage::disk('s3')->delete($document->file_path);
 Storage::disk('s3')->delete($document->file_path);
 $document->delete();
 ```
+
+
+## Docker Command
+
+### MinIO
+
+```sh
+#!/bin/bash
+docker stop minio
+docker rm minio
+sleep 2
+docker run -d --name minio \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  -e MINIO_ROOT_USER=minioadmin \
+  -e MINIO_ROOT_PASSWORD=minioadmin \
+    quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z server /data --console-address ":9001"
+```
+
+### MYSQL
+
+```sh
+#!/bin/bash
+docker run --name mysql \
+    -p 3306:3306 \
+    -v .\data\:/var/lib/mysql/:rw \
+    -e MYSQL_ROOT_PASSWORD=iv99jTUT35Vwk8uR \
+    -e TZ="Asia/Bangkok" \
+    -d docker.io/library/mysql:8.0.42
+```
