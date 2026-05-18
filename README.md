@@ -625,3 +625,17 @@ docker run --name mysql \
     -e TZ="Asia/Bangkok" \
     -d docker.io/library/mysql:8.0.42
 ```
+
+### TEST rest-client
+
+```http
+@bucketName = dev-upload
+@imageName = b001.jpg
+@minioHost = http://localhost:9000
+@accessKey = minioadmin
+@secretKey = minioadmin
+### SHOW IMG
+GET {{minioHost}}/{{bucketName}}/{{imageName}}
+Authorization: AWS {{accessKey}} {{secretKey}} region:ap-southeast-7 service:s3
+```
+
